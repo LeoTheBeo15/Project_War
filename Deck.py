@@ -1,5 +1,5 @@
 from Card import *
-
+from random import *
 
 class Deck:
     def __init__(self):
@@ -23,8 +23,21 @@ class Deck:
                     _card = Card(suit, value)
                 # add cards created into the cards list
                 self.cards.append(_card)
-        return self.cards
     
+    
+
+    def shuffle(self):
+        shuffled_deck = []
+        for i in range(len(self.cards)):
+            if len(self.cards) > 0:
+                rand = randint(0, len(self.cards) -1)
+                # list[i -> index]
+                shuffled_deck.append(self.cards[rand])
+                self.cards.remove(self.cards[rand])
+        self.cards = shuffled_deck
+        print(len(self.cards))
+        
     def flipped(self):
-        for card in self.cards:
-            card.flipped()
+            for card in self.cards:
+                card.flipped()
+            
