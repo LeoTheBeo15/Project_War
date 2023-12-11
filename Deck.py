@@ -1,13 +1,14 @@
 from Card import *
 from random import *
+from Player import *
 
 class Deck:
     def __init__(self):
         self.cards = []
+        self.mainDeck = self.cards
         self.card_values = Card.card_values
         self.head_card = Card.head_card
         self.suits = Card.suits
-        # make method to create the cards
         self.make_cards()
 
     # define method to create cards
@@ -22,22 +23,46 @@ class Deck:
                 else:
                     _card = Card(suit, value)
                 # add cards created into the cards list
-                self.cards.append(_card)
+                self.mainDeck.append(_card)
     
     
 
     def shuffle(self):
         shuffled_deck = []
-        for i in range(len(self.cards)):
-            if len(self.cards) > 0:
-                rand = randint(0, len(self.cards) -1)
+        for i in range(self.deckLength()):
+            if self.deckLength() > 0:
+                rand = randint(0, self.deckLength() -1)
                 # list[i -> index]
-                shuffled_deck.append(self.cards[rand])
-                self.cards.remove(self.cards[rand])
-        self.cards = shuffled_deck
-        print(len(self.cards))
+                shuffled_deck.append(self.mainDeck[rand])
+                self.mainDeck.remove(self.mainDeck[rand])
+        self.mainDeck = shuffled_deck
+        print(self.deckLength())
         
     def flipped(self):
-            for card in self.cards:
-                card.flipped()
+        for card in self.mainDeck:
+            card.flipped()
             
+    def drawFromTop(self):
+        return self.mainDeck.pop(0)
+       
+    def deckLength(self):
+        return len(self.mainDeck)
+
+    def addToDeck(self, card):
+        self.mainDeck.append(card)
+
+
+    def deal(self, numPlayers ):
+        topCard = self.mainDeck.drawFromTop()
+        topCard.addToDeck()
+       
+       
+        pass
+       
+       
+    #    help?? how to make it deal to X amt of players
+        # for i in self.cards in range(0, 52, 2):
+        #      self.hand.append()
+        
+        
+      

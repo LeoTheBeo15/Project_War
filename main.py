@@ -10,3 +10,7 @@ deck = Deck()
 
 deck.shuffle()
 deck.flipped()
+
+# card = deck.drawFromTop()
+# card.flipped()
+# deck.deckLength()
