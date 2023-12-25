@@ -8,6 +8,7 @@ deck = Deck()
 # deck.flipped()
 war = War()
 
+deck.make_cards()
 deck.shuffle()
 # deck.flipped()
 
@@ -18,4 +19,7 @@ deck.shuffle()
 
 deck.deal(war.getPlayers())
 for player in war.getPlayers():
+    print("player:")
+
+    print(player.getHand().deckLength())
     player.showHand()

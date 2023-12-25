@@ -1,16 +1,15 @@
 from Card import *
 from random import *
-from Player import *
+# from Player import *
 
 
 class Deck:
     def __init__(self):
-        self.cards = []
-        self.mainDeck = self.cards
+        self.mainDeck = []
         self.card_values = Card.card_values
         self.head_card = Card.head_card
         self.suits = Card.suits
-        self.make_cards()
+        # self.make_cards()
 
     # define method to create cards
     def make_cards(self):
@@ -37,7 +36,7 @@ class Deck:
                 shuffled_deck.append(self.mainDeck[rand])
                 self.mainDeck.remove(self.mainDeck[rand])
         self.mainDeck = shuffled_deck
-        print(self.deckLength())
+        # print(self.deckLength())
         
     def flipped(self):
         for card in self.mainDeck:
@@ -53,7 +52,7 @@ class Deck:
         self.mainDeck.append(card)
 
     def isEmpty(self):
-        if self.mainDeck.deckLength() == 0:
+        if self.deckLength() == 0:
             return True
         else:
             return False
@@ -61,14 +60,9 @@ class Deck:
     
 
     def deal(self, players):
-        
         while not self.isEmpty():
-            
             for player in players:
-                
-                player.getHand().addToDeck(self.mainDeck.drawFromTop())
-
-       
+                player.getHand().addToDeck(self.drawFromTop())
         pass
        
        
