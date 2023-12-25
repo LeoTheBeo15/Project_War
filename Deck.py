@@ -2,6 +2,7 @@ from Card import *
 from random import *
 from Player import *
 
+
 class Deck:
     def __init__(self):
         self.cards = []
@@ -42,27 +43,35 @@ class Deck:
         for card in self.mainDeck:
             card.flipped()
             
-    def drawFromTop(self):
-        return self.mainDeck.pop(0)
-       
     def deckLength(self):
         return len(self.mainDeck)
+
+    def drawFromTop(self):
+        return self.mainDeck.pop(0)
 
     def addToDeck(self, card):
         self.mainDeck.append(card)
 
+    def isEmpty(self):
+        if self.mainDeck.deckLength() == 0:
+            return True
+        else:
+            return False
 
-    def deal(self, numPlayers ):
-        topCard = self.mainDeck.drawFromTop()
-        topCard.addToDeck()
-       
+    
+
+    def deal(self, players):
+        
+        while not self.isEmpty():
+            
+            for player in players:
+                
+                player.getHand().addToDeck(self.mainDeck.drawFromTop())
+
        
         pass
        
        
-    #    help?? how to make it deal to X amt of players
-        # for i in self.cards in range(0, 52, 2):
-        #      self.hand.append()
         
         
       

@@ -7,5 +7,9 @@ class Player:
         self.hand = Deck()
         self.winningHand = Deck()
 
+    def showHand(self):
+         self.hand.flipped()
 
+    def getHand(self):
+            return self.hand
     # need input for number of players?

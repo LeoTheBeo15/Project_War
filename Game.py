@@ -1,13 +1,38 @@
+from Player import *
+from Deck import *
+
 
 class War:
+
+    def __init__(self):
+        self.player1 = Player()
+        self.player2 = Player()
+        self.players = [self.player1, self.player2]
+        self.numPlayers = len(self.players)
+    
+    def getPlayers(self):
+        return self.players
+
+    
+
+    
+    
+    
     
 
 
 
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
     
 """
 amt of players, 
