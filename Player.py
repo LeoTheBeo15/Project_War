@@ -12,4 +12,7 @@ class Player:
 
     def getHand(self):
             return self.hand
+    
+    def getWinningHand(self):
+         return self.winningHand
     # need input for number of players?
